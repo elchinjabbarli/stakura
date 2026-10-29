@@ -1,0 +1,32 @@
+# Stakura smoke flow: end a run and reach the game-over panel.
+# Blocks slide across the tower before being dropped. Tapping immediately
+# after the run starts drops the block while it is still far from the tower,
+# so it misses entirely; two quick misses are enough to end the run and open
+# the game-over panel with the TRY AGAIN button. extendedWaitUntil keeps the
+# flow tolerant to slow webview cold starts.
+appId: com.elchinjabbarli.stakura
+name: Stakura game over
+tags:
+  - smoke
+---
+- launchApp
+
+- assertVisible:
+    text: STAKURA
+
+- tapOn:
+    text: PLAY
+
+# Two immediate drops on purpose: both blocks miss the tower.
+- tapOn:
+    point: "50%,55%"
+    retryTapIfNoChange: false
+- tapOn:
+    point: "50%,55%"
+    retryTapIfNoChange: false
+
+# Game-over panel.
+- extendedWaitUntil:
+    visible:
+      text: TRY AGAIN
+    timeout: 20000

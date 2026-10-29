@@ -1,0 +1,24 @@
+// MCP server configuration for AI-assisted development of Stakura.
+// Pattern follows github.com/modelcontextprotocol/servers.
+//
+// Dev tooling only: no secrets, and nothing here is required to build,
+// deploy or play the game. Entries below are suggestions for local
+// development; remove this file freely. If your MCP client requires strict
+// JSON, strip these comments first.
+{
+  "mcpServers": {
+    "filesystem": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-filesystem", "."]
+    }
+    // ,
+    // "fetch": {
+    //   "command": "uvx",
+    //   "args": ["mcp-server-fetch"]
+    // },
+    // "git": {
+    //   "command": "uvx",
+    //   "args": ["mcp-server-git", "--repository", "."]
+    // }
+  }
+}

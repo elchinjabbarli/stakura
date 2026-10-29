@@ -1,0 +1,17 @@
+node_modules/
+.env
+.env.*
+!.env.example
+ios/
+android/
+dist/
+.DS_Store
+*.log
+.maestro/
+fastlane/report.xml
+fastlane/Preview.html
+fastlane/screenshots/
+fastlane/test_output/
+.idea/
+.vscode/
+*.tsbuildinfo

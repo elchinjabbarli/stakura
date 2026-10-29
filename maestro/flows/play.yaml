@@ -1,0 +1,44 @@
+# Stakura smoke flow: start a run and drop a few blocks.
+# Taps land at the screen center (percentage-based coordinates, safe across
+# device sizes). Maestro's post-tap settle window paces the drops roughly
+# 700 ms apart, so each sliding block lands mid-arc instead of stacking
+# perfectly. retryTapIfNoChange is disabled because the game draws to a
+# canvas and the accessibility tree barely changes between drops.
+appId: com.elchinjabbarli.stakura
+name: Stakura play
+tags:
+  - smoke
+---
+- launchApp
+
+- assertVisible:
+    text: STAKURA
+
+- tapOn:
+    text: PLAY
+
+# Drop six blocks.
+- tapOn:
+    point: "50%,55%"
+    retryTapIfNoChange: false
+- tapOn:
+    point: "50%,55%"
+    retryTapIfNoChange: false
+- tapOn:
+    point: "50%,55%"
+    retryTapIfNoChange: false
+- tapOn:
+    point: "50%,55%"
+    retryTapIfNoChange: false
+- tapOn:
+    point: "50%,55%"
+    retryTapIfNoChange: false
+- tapOn:
+    point: "50%,55%"
+    retryTapIfNoChange: false
+
+# The HUD shows tower height with an "m" (meters) unit once gameplay starts.
+- extendedWaitUntil:
+    visible:
+      text: m
+    timeout: 5000

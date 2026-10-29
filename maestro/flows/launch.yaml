@@ -1,0 +1,18 @@
+# Stakura smoke flow: cold launch, menu title, start button.
+# The menu is rendered in the webview DOM. On iOS, webview text is exposed
+# through the accessibility tree, so plain text assertions work without
+# xpaths. Keep selectors text-based and tolerant.
+appId: com.elchinjabbarli.stakura
+name: Stakura launch
+tags:
+  - smoke
+---
+- launchApp
+
+# Menu title.
+- assertVisible:
+    text: STAKURA
+
+# Start a run.
+- tapOn:
+    text: PLAY
